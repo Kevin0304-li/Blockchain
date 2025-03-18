@@ -144,28 +144,88 @@ section h2 {
 footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 25px 0;
+    padding: 40px 0 25px;
     text-align: center;
 }
 
 footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.social-links a {
-    color: white;
-    font-size: 1.5rem;
-    margin-left: 15px;
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-size: 0.9rem;
     transition: color 0.3s;
 }
 
-.social-links a:hover {
+.footer-section ul li a:hover {
     color: var(--accent-color);
 }
 
-/* Responsive Design */
+.footer-section .social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-section .social-links a {
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-section .social-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-bottom a {
+    color: var(--primary-color);
+}
+
 @media (max-width: 768px) {
     header {
         padding: 40px 0;
@@ -187,12 +247,13 @@ footer .container {
         grid-template-columns: 1fr;
     }
     
-    footer .container {
-        flex-direction: column;
+    .footer-content {
+        grid-template-columns: 1fr;
     }
     
-    .social-links {
-        margin-top: 15px;
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
