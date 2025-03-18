@@ -24,12 +24,9 @@
                 <li><a href="#core-concepts">Core Concepts</a></li>
                 <li><a href="#development">Development</a></li>
                 <li><a href="#advanced">Advanced Topics</a></li>
-                <li><a href="#practical-projects">Practical Projects</a></li>
+                <li><a href="#practical-projects">Projects</a></li>
                 <li><a href="#resources">Resources</a></li>
-                <li><a href="#github-resources">GitHub Resources</a></li>
-                <li><a href="#developer-documentation">Documentation</a></li>
-                <li><a href="#web3-ecosystem">Web3 Ecosystem</a></li>
-                <li><a href="#career-paths">Career Paths</a></li>
+                <li><a href="profile.html">My Profile</a></li>
             </ul>
         </div>
     </nav>
@@ -49,7 +46,50 @@
                     <li>Contribute to reshaping industries like finance, supply chain, healthcare, and more</li>
                 </ul>
             </div>
+            
+            <div class="secondary-nav">
+                <h3>Roadmap Sections</h3>
+                <div class="nav-grid">
+                    <div class="nav-category">
+                        <h4>Getting Started</h4>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#learning-paths">Learning Paths</a></li>
+                            <li><a href="#fundamentals">Fundamentals</a></li>
+                            <li><a href="#core-concepts">Core Concepts</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-category">
+                        <h4>Development</h4>
+                        <ul>
+                            <li><a href="#development">Blockchain Development</a></li>
+                            <li><a href="#advanced">Advanced Topics</a></li>
+                            <li><a href="#practical-projects">Practical Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-category">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#resources">Learning Resources</a></li>
+                            <li><a href="#github-resources">GitHub Resources</a></li>
+                            <li><a href="#developer-documentation">Documentation</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-category">
+                        <h4>Ecosystem</h4>
+                        <ul>
+                            <li><a href="#web3-ecosystem">Web3 Ecosystem</a></li>
+                            <li><a href="#career-paths">Career Paths</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <div class="search-container">
+            <input type="text" id="roadmap-search" placeholder="Search topics in the roadmap...">
+            <button id="search-clear" style="display: none;">×</button>
+        </div>
 
         <section id="learning-paths">
             <h2>Learning Paths</h2>
@@ -624,6 +664,10 @@
         </section>
     </main>
 
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -662,5 +706,63 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('roadmap-search');
+            const clearButton = document.getElementById('search-clear');
+            const navLinks = document.querySelectorAll('.nav-category a');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                clearButton.style.display = searchTerm ? 'block' : 'none';
+
+                navLinks.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    const parent = link.closest('.nav-category');
+                    
+                    if (text.includes(searchTerm)) {
+                        link.style.display = 'block';
+                        link.style.backgroundColor = searchTerm ? 'rgba(52, 152, 219, 0.1)' : '';
+                        parent.style.display = 'block';
+                    } else {
+                        link.style.display = 'none';
+                        link.style.backgroundColor = '';
+                    }
+
+                    // Hide category if all links are hidden
+                    const visibleLinks = Array.from(parent.querySelectorAll('a')).some(a => a.style.display !== 'none');
+                    parent.style.display = visibleLinks ? 'block' : 'none';
+                });
+            });
+
+            clearButton.addEventListener('click', function() {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.focus();
+            });
+        });
+    </script>
+    
+    <script src="profile.js"></script>
 </body>
 </html> 

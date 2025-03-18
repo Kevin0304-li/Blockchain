@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Profile | Blockchain Roadmap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Developer Profile</h1>
+            <p>Track your progress and customize your blockchain journey</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Roadmap</a></li>
+                <li><a href="profile.html" class="active">My Profile</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#learning-path">Learning Path</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="profile-header">
+            <div class="profile-banner">
+                <div class="profile-avatar" id="profile-avatar">
+                    <img src="https://via.placeholder.com/150" alt="Profile Avatar" id="avatar-img">
+                    <div class="avatar-overlay">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-name">Developer Name</h2>
+                    <p id="profile-title">Blockchain Explorer</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="skills-completed">0</span>
+                            <span class="stat-label">Skills</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="projects-completed">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="achievements-earned">0</span>
+                            <span class="stat-label">Achievements</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button id="edit-profile-btn" class="btn"><i class="fas fa-edit"></i> Edit Profile</button>
+                    <button id="share-profile-btn" class="btn"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="profile-tabs">
+            <div class="tab active" data-tab="dashboard">Dashboard</div>
+            <div class="tab" data-tab="skills">Skills</div>
+            <div class="tab" data-tab="learning-path">Learning Path</div>
+            <div class="tab" data-tab="challenges">Challenges</div>
+            <div class="tab" data-tab="achievements">Achievements</div>
+            <div class="tab" data-tab="settings">Settings</div>
+        </div>
+
+        <section id="dashboard" class="tab-content active">
+            <h2>Your Dashboard</h2>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Learning Progress</h3>
+                    <div class="progress-container">
+                        <div class="progress-chart-container">
+                            <canvas id="progress-chart"></canvas>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-stat">
+                                <span class="stat-label">Overall Progress</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="overall-progress" style="width: 35%;">35%</div>
+                                </div>
+                            </div>
+                            <div class="progress-stat">
+                                <span class="stat-label">Weekly Goal</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill accent" id="weekly-goal" style="width: 75%;">75%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Upcoming Milestones</h3>
+                    <ul class="milestone-list" id="milestone-list">
+                        <li class="milestone">
+                            <div class="milestone-icon"><i class="fas fa-code"></i></div>
+                            <div class="milestone-info">
+                                <h4>Complete Smart Contract Basics</h4>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%;">60%</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="milestone">
+                            <div class="milestone-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="milestone-info">
+                                <h4>Build Your First dApp</h4>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 25%;">25%</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="milestone">
+                            <div class="milestone-icon"><i class="fas fa-dice-d20"></i></div>
+                            <div class="milestone-info">
+                                <h4>Create an NFT Collection</h4>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 10%;">10%</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-feed" id="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="activity-content">
+                                <p>Completed <strong>Blockchain Basics</strong></p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="activity-content">
+                                <p>Earned <strong>First Smart Contract</strong> badge</p>
+                                <span class="activity-time">5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-code-branch"></i></div>
+                            <div class="activity-content">
+                                <p>Started <strong>Solidity Programming</strong> course</p>
+                                <span class="activity-time">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card suggested-content">
+                    <h3>Suggested Next Steps</h3>
+                    <div class="suggestion" id="auto-suggestions">
+                        <div class="suggestion-card">
+                            <div class="suggestion-icon"><i class="fas fa-book"></i></div>
+                            <div class="suggestion-content">
+                                <h4>Learn Advanced Solidity Patterns</h4>
+                                <p>Based on your progress, this is a good next step</p>
+                                <a href="#" class="btn btn-small">Start Learning</a>
+                            </div>
+                        </div>
+                        <div class="suggestion-card">
+                            <div class="suggestion-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="suggestion-content">
+                                <h4>Build a DeFi Project</h4>
+                                <p>Apply your skills with this hands-on project</p>
+                                <a href="#" class="btn btn-small">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="tab-content">
+            <h2>Skill Tracker</h2>
+            
+            <div class="skills-filter">
+                <div class="search-container">
+                    <input type="text" id="skills-search" placeholder="Search skills...">
+                    <button id="skills-search-clear">×</button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                    <button class="filter-btn" data-filter="not-started">Not Started</button>
+                </div>
+            </div>
+            
+            <div class="skills-grid" id="skills-grid">
+                <div class="skill-card" data-status="completed" data-category="basics">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                        <div class="skill-progress completed">100%</div>
+                    </div>
+                    <h3>Blockchain Fundamentals</h3>
+                    <p>Core concepts of blockchain technology</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">Basics</span>
+                        <button class="btn btn-small view-skill-btn">View</button>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-status="in-progress" data-category="programming">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <div class="skill-progress in-progress">60%</div>
+                    </div>
+                    <h3>Solidity Programming</h3>
+                    <p>Smart contract development with Solidity</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">Programming</span>
+                        <button class="btn btn-small view-skill-btn">Continue</button>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-status="not-started" data-category="development">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="skill-progress not-started">0%</div>
+                    </div>
+                    <h3>dApp Development</h3>
+                    <p>Building decentralized applications</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">Development</span>
+                        <button class="btn btn-small view-skill-btn">Start</button>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-status="not-started" data-category="security">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="skill-progress not-started">0%</div>
+                    </div>
+                    <h3>Smart Contract Security</h3>
+                    <p>Securing blockchain applications</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">Security</span>
+                        <button class="btn btn-small view-skill-btn">Start</button>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-status="in-progress" data-category="defi">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="skill-progress in-progress">25%</div>
+                    </div>
+                    <h3>DeFi Concepts</h3>
+                    <p>Decentralized finance fundamentals</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">DeFi</span>
+                        <button class="btn btn-small view-skill-btn">Continue</button>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-status="completed" data-category="basics">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-key"></i></div>
+                        <div class="skill-progress completed">100%</div>
+                    </div>
+                    <h3>Cryptography Basics</h3>
+                    <p>Fundamental cryptographic concepts</p>
+                    <div class="skill-footer">
+                        <span class="skill-category">Basics</span>
+                        <button class="btn btn-small view-skill-btn">View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-visualization">
+                <h3>Skills Radar</h3>
+                <div class="radar-container">
+                    <canvas id="skills-radar"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning-path" class="tab-content">
+            <h2>Your Learning Path</h2>
+            
+            <div class="learning-path-controls">
+                <div class="path-selector">
+                    <label for="path-select">Current Path:</label>
+                    <select id="path-select">
+                        <option value="default">Recommended Path</option>
+                        <option value="developer">Blockchain Developer</option>
+                        <option value="defi">DeFi Specialist</option>
+                        <option value="security">Security Expert</option>
+                        <option value="custom">Custom Path</option>
+                    </select>
+                </div>
+                <button id="customize-path-btn" class="btn"><i class="fas fa-sliders-h"></i> Customize</button>
+            </div>
+            
+            <div class="learning-path-timeline" id="learning-path-container">
+                <div class="timeline-marker completed">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-item completed">
+                    <div class="timeline-content">
+                        <h3>Blockchain Basics</h3>
+                        <p>Fundamentals of blockchain technology</p>
+                        <div class="timeline-badges">
+                            <span class="badge">Completed</span>
+                            <span class="badge">Core</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-marker current">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-item current">
+                    <div class="timeline-content">
+                        <h3>Smart Contract Development</h3>
+                        <p>Writing and deploying smart contracts</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;">60%</div>
+                        </div>
+                        <a href="#" class="btn btn-small">Continue Learning</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Building Your First dApp</h3>
+                        <p>Create a decentralized application</p>
+                        <div class="timeline-badges">
+                            <span class="badge">Locked</span>
+                            <span class="badge">Project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Smart Contract Security</h3>
+                        <p>Securing your blockchain applications</p>
+                        <div class="timeline-badges">
+                            <span class="badge">Locked</span>
+                            <span class="badge">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>DeFi Development</h3>
+                        <p>Building decentralized finance applications</p>
+                        <div class="timeline-badges">
+                            <span class="badge">Locked</span>
+                            <span class="badge">Specialization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="path-recommendations">
+                <h3>Recommendations based on your progress</h3>
+                <div class="recommendation-cards">
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="recommendation-content">
+                            <h4>Take the Web3.js Course</h4>
+                            <p>This will help you connect your frontend to smart contracts</p>
+                            <a href="#" class="btn btn-small">Start Course</a>
+                        </div>
+                    </div>
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon"><i class="fas fa-code-branch"></i></div>
+                        <div class="recommendation-content">
+                            <h4>Join the Smart Contract Challenge</h4>
+                            <p>Practice your skills with this 7-day challenge</p>
+                            <a href="#" class="btn btn-small">Join Challenge</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="tab-content">
+            <h2>Coding Challenges & Quizzes</h2>
+            
+            <div class="challenges-stats">
+                <div class="stat-block">
+                    <span class="stat-number" id="completed-challenges">4</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="current-streak">3</span>
+                    <span class="stat-label">Day Streak</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="challenge-points">280</span>
+                    <span class="stat-label">Points</span>
+                </div>
+            </div>
+            
+            <div class="challenge-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Challenges</button>
+                    <button class="filter-btn" data-filter="quizzes">Quizzes</button>
+                    <button class="filter-btn" data-filter="coding">Coding Tasks</button>
+                    <button class="filter-btn" data-filter="projects">Mini Projects</button>
+                </div>
+                <div class="challenge-sort">
+                    <label for="challenge-sort-select">Sort by:</label>
+                    <select id="challenge-sort-select">
+                        <option value="recent">Most Recent</option>
+                        <option value="difficulty">Difficulty</option>
+                        <option value="points">Points</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="challenge-grid" id="challenge-grid">
+                <div class="challenge-card" data-type="coding" data-difficulty="medium">
+                    <div class="challenge-status completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-code"></i></div>
+                        <div class="challenge-difficulty medium">Medium</div>
+                    </div>
+                    <h3>Smart Contract Function</h3>
+                    <p>Write a Solidity function that implements a basic token transfer with proper error handling.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 75 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 45 min
+                        </div>
+                    </div>
+                    <button class="btn btn-small view-challenge-btn">View Challenge</button>
+                </div>
+                
+                <div class="challenge-card" data-type="quizzes" data-difficulty="easy">
+                    <div class="challenge-status completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-question-circle"></i></div>
+                        <div class="challenge-difficulty easy">Easy</div>
+                    </div>
+                    <h3>Blockchain Basics Quiz</h3>
+                    <p>Test your knowledge of blockchain fundamentals, consensus algorithms, and decentralization.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 50 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 20 min
+                        </div>
+                    </div>
+                    <button class="btn btn-small view-challenge-btn">View Results</button>
+                </div>
+                
+                <div class="challenge-card" data-type="quizzes" data-difficulty="medium">
+                    <div class="challenge-status completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-question-circle"></i></div>
+                        <div class="challenge-difficulty medium">Medium</div>
+                    </div>
+                    <h3>Cryptography Challenge</h3>
+                    <p>Test your understanding of cryptographic primitives used in blockchain technology.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 75 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 30 min
+                        </div>
+                    </div>
+                    <button class="btn btn-small view-challenge-btn">View Results</button>
+                </div>
+                
+                <div class="challenge-card" data-type="coding" data-difficulty="hard">
+                    <div class="challenge-status completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-code"></i></div>
+                        <div class="challenge-difficulty hard">Hard</div>
+                    </div>
+                    <h3>DeFi Protocol Integration</h3>
+                    <p>Implement a smart contract that interacts with a popular DeFi protocol like Uniswap or Aave.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 100 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 2 hours
+                        </div>
+                    </div>
+                    <button class="btn btn-small view-challenge-btn">View Challenge</button>
+                </div>
+                
+                <div class="challenge-card" data-type="projects" data-difficulty="hard">
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="challenge-difficulty hard">Hard</div>
+                    </div>
+                    <h3>NFT Marketplace</h3>
+                    <p>Build a simple NFT marketplace with listing, buying, and bidding functionality.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 150 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 3 days
+                        </div>
+                    </div>
+                    <button class="btn btn-small challenge-start-btn">Start Challenge</button>
+                </div>
+                
+                <div class="challenge-card" data-type="projects" data-difficulty="medium">
+                    <div class="challenge-header">
+                        <div class="challenge-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="challenge-difficulty medium">Medium</div>
+                    </div>
+                    <h3>Decentralized Voting App</h3>
+                    <p>Create a simple voting application using smart contracts and a web3 frontend.</p>
+                    <div class="challenge-meta">
+                        <div class="challenge-points">
+                            <i class="fas fa-star"></i> 100 Points
+                        </div>
+                        <div class="challenge-time">
+                            <i class="fas fa-clock"></i> 2 days
+                        </div>
+                    </div>
+                    <button class="btn btn-small challenge-start-btn">Start Challenge</button>
+                </div>
+            </div>
+            
+            <div class="daily-challenge-section">
+                <h3>Daily Challenge</h3>
+                <div class="daily-challenge-card">
+                    <div class="daily-challenge-header">
+                        <div class="daily-challenge-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="daily-challenge-info">
+                            <h4>ERC-20 Token Balance Check</h4>
+                            <p>Write a function to check and display a user's ERC-20 token balance</p>
+                        </div>
+                    </div>
+                    <div class="daily-challenge-footer">
+                        <div class="daily-challenge-meta">
+                            <div class="challenge-points">
+                                <i class="fas fa-star"></i> 30 Points
+                            </div>
+                            <div class="challenge-time">
+                                <i class="fas fa-clock"></i> 20 min
+                            </div>
+                        </div>
+                        <button class="btn daily-challenge-btn">Take Today's Challenge</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="challenge-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="challenge-modal-title">Challenge Title</h3>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div id="challenge-description">
+                            <h4>Description</h4>
+                            <p>Challenge description goes here...</p>
+                        </div>
+                        
+                        <div id="challenge-requirements">
+                            <h4>Requirements</h4>
+                            <ul>
+                                <li>Requirement 1</li>
+                                <li>Requirement 2</li>
+                                <li>Requirement 3</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="code-editor-container">
+                            <h4>Solution</h4>
+                            <div id="code-editor">// Write your solution here</div>
+                        </div>
+                        
+                        <div id="quiz-container" style="display:none;">
+                            <form id="quiz-form">
+                                <div class="quiz-question">
+                                    <h4>Question 1</h4>
+                                    <p>Sample question text goes here?</p>
+                                    <div class="quiz-options">
+                                        <label><input type="radio" name="q1" value="a"> Option A</label>
+                                        <label><input type="radio" name="q1" value="b"> Option B</label>
+                                        <label><input type="radio" name="q1" value="c"> Option C</label>
+                                        <label><input type="radio" name="q1" value="d"> Option D</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="run-code-btn" class="btn">Run Code</button>
+                        <button id="submit-challenge-btn" class="btn">Submit Solution</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="tab-content">
+            <h2>Achievements & Badges</h2>
+            
+            <div class="achievements-stats">
+                <div class="stat-block">
+                    <span class="stat-number" id="total-achievements">6</span>
+                    <span class="stat-label">Total Badges</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="achievements-unlocked">2</span>
+                    <span class="stat-label">Unlocked</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="achievements-locked">4</span>
+                    <span class="stat-label">Locked</span>
+                </div>
+            </div>
+            
+            <div class="achievements-grid" id="achievements-grid">
+                <div class="achievement-card unlocked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Blockchain Pioneer</h3>
+                    <p>Completed the blockchain basics course</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-date">Earned on May 15, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card unlocked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Smart Coder</h3>
+                    <p>Wrote your first smart contract</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-date">Earned on June 2, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card locked">
+                    <div class="achievement-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>dApp Developer</h3>
+                    <p>Build and deploy your first dApp</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-requirements">Requires: Complete a dApp project</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card locked">
+                    <div class="achievement-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Security Guardian</h3>
+                    <p>Complete the smart contract security course</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-requirements">Requires: Complete security module</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card locked">
+                    <div class="achievement-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>DeFi Wizard</h3>
+                    <p>Create a decentralized finance application</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-requirements">Requires: Build a DeFi project</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card locked">
+                    <div class="achievement-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>NFT Creator</h3>
+                    <p>Mint your first NFT collection</p>
+                    <div class="achievement-footer">
+                        <span class="achievement-requirements">Requires: Complete NFT project</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievement-showcase">
+                <h3>Your Badge Showcase</h3>
+                <div class="showcase-container" id="badge-showcase">
+                    <div class="showcase-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <span class="badge-name">Blockchain Pioneer</span>
+                    </div>
+                    <div class="showcase-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <span class="badge-name">Smart Coder</span>
+                    </div>
+                    <div class="showcase-badge empty">
+                        <div class="empty-badge">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <span class="badge-name">Unlock more badges</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" class="tab-content">
+            <h2>Profile Settings</h2>
+            
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h3>Personal Information</h3>
+                    <form id="personal-info-form" class="settings-form">
+                        <div class="form-group">
+                            <label for="display-name">Display Name</label>
+                            <input type="text" id="display-name" value="Developer Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-title">Title</label>
+                            <input type="text" id="user-title" value="Blockchain Explorer">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-bio">Bio</label>
+                            <textarea id="user-bio" rows="3">Enthusiastic blockchain developer focused on learning smart contract development and DeFi applications.</textarea>
+                        </div>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </form>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Learning Preferences</h3>
+                    <form id="learning-prefs-form" class="settings-form">
+                        <div class="form-group">
+                            <label for="learning-path">Preferred Learning Path</label>
+                            <select id="learning-path-select">
+                                <option value="developer">Blockchain Developer</option>
+                                <option value="defi">DeFi Specialist</option>
+                                <option value="security">Security Expert</option>
+                                <option value="nft">NFT Developer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weekly-goal">Weekly Learning Goal (hours)</label>
+                            <input type="number" id="weekly-goal" min="1" max="40" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label>Interests (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" checked> Smart Contracts</label>
+                                <label><input type="checkbox" checked> DeFi</label>
+                                <label><input type="checkbox"> NFTs</label>
+                                <label><input type="checkbox"> DAO Governance</label>
+                                <label><input type="checkbox"> Layer 2 Solutions</label>
+                                <label><input type="checkbox"> Zero-knowledge Proofs</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Save Preferences</button>
+                    </form>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Notifications</h3>
+                    <form id="notifications-form" class="settings-form">
+                        <div class="form-group">
+                            <label>Email Notifications</label>
+                            <div class="toggle-group">
+                                <div class="toggle-item">
+                                    <span>Weekly Progress Report</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="toggle-item">
+                                    <span>Achievement Unlocked</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="toggle-item">
+                                    <span>Learning Recommendations</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="toggle-item">
+                                    <span>New Content Alerts</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Save Notification Settings</button>
+                    </form>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Privacy Settings</h3>
+                    <form id="privacy-form" class="settings-form">
+                        <div class="form-group">
+                            <label>Profile Visibility</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="profile-visibility" checked> Public</label>
+                                <label><input type="radio" name="profile-visibility"> Private</label>
+                                <label><input type="radio" name="profile-visibility"> Friends Only</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Show in Leaderboard</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Display Learning Progress</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn">Save Privacy Settings</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About This Roadmap</h3>
+                    <p>This comprehensive blockchain developer roadmap is designed to guide you through the journey of becoming a proficient blockchain developer. It covers everything from basic concepts to advanced topics, with curated resources for each step.</p>
+                    <p>Last updated: March 2025</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Roadmap</a></li>
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li><a href="#learning-path">Learning Path</a></li>
+                        <li><a href="#skills">Skills Tracker</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/Kevin0304-li/Blockchain" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/yourusername" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://discord.gg/yourdiscord" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="https://t.me/yourtelegram" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    <p>Have suggestions? <a href="https://github.com/Kevin0304-li/Blockchain/issues" target="_blank">Submit an issue</a> or contribute via pull requests.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Blockchain Developer Roadmap</p>
+                <p>Released under <a href="https://github.com/Kevin0304-li/Blockchain/blob/master/LICENSE" target="_blank">MIT License</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+</body>
+</html> 
